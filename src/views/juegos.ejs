@@ -1,0 +1,58 @@
+<%- include('partials/_header.ejs') %> 
+
+<h1>JUEGOS</h1>
+<pre><%= data[0].titulo %></pre>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-7">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>no.</th>
+                        <th>título</th>
+                        <th>consola</th>
+                        <th>fecha</th>
+                        <th>acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if(data) { %>
+                        <% for (var i=0; i < data.length; i++) { %>
+                            <tr>
+                                <td><%= (i + 1) %></td>
+                                <td><%= data[i].titulo %></td>
+                                <td><%= data[i].consola %></td>
+                                <td><%= data[i].fecha %></td>
+                                <td>Pendiente</td>
+                            </tr>
+                        <% } %>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/add" method="post">
+                        <div class="form-group">
+                            <input type="text" name="titulo" placeholder="titulo" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="consola" placeholder="consola" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="date" name="fecha" placeholder="fecha" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            Guardar juego
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<%- include('partials/_footer.ejs') %> 

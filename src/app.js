@@ -25,11 +25,14 @@ app.use(myConnection(mysql, {
     database: 'nodejsactividad'
 }, 'single'))
 
+app.use(express.urlencoded({extended: false}));
+
 // rutas
 app.use('/', juegoRoutes);
 
 // Archivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 // Ejecución del servidor
 app.listen(app.get('port'), () => {
