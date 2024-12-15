@@ -9,6 +9,7 @@ const app = express();
 
 // importación de rutas
 const juegoRoutes = require('./routes/juego');
+const personajeRoutes = require('./routes/personaje');
 
 // configuraciones
 app.set('port', process.env.PORT || 3000);
@@ -28,7 +29,8 @@ app.use(myConnection(mysql, {
 app.use(express.urlencoded({extended: false}));
 
 // rutas
-app.use('/', juegoRoutes);
+app.use('/juegos', juegoRoutes);
+app.use('/personajes', personajeRoutes);
 
 // Archivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));

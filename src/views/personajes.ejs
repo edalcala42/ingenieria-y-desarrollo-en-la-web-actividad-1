@@ -1,7 +1,7 @@
 <%- include('partials/_header.ejs') %> 
 >
 <h1>
-    Listado de Juegos
+    Listado de Personajes
 </h1>
 
 
@@ -12,9 +12,9 @@
                 <thead>
                     <tr>
                         <th class="col-width-1">no.</th>
-                        <th>título</th>
-                        <th>consola</th>
-                        <th>fecha</th>
+                        <th>nombre</th>
+                        <th>sexo</th>
+                        <th>juego id</th>
                         <th class="col-width-5">acciones</th>
                     </tr>
                 </thead>
@@ -23,12 +23,12 @@
                         <% for (var i=0; i < data.length; i++) { %>
                             <tr>
                                 <td class="col-width-1"><%= (i + 1) %></td>
-                                <td class="col-width-2"><%= data[i].titulo %></td>
-                                <td class="col-width-3"><%= data[i].consola %></td>
-                                <td class="col-width-4"><%= data[i].fecha %></td>
+                                <td class="col-width-2"><%= data[i].nombre %></td>
+                                <td class="col-width-3"><%= data[i].sexo %></td>
+                                <td class="col-width-4"><%= data[i].juegoId %></td>
                                 <td class="col-width-5">
-                                    <a href="/juegos/update/<%= data[i].id %>" class="btn btn-info">Update</a>
-                                    <a href="/juegos/delete/<%= data[i].id %>" class="btn btn-danger">Delete</a>
+                                    <a href="/personajes/update/<%= data[i].id %>" class="btn btn-info">Update</a>
+                                    <a href="/personajes/delete/<%= data[i].id %>" class="btn btn-danger">Delete</a>
                                 </td>
                             </tr>
                         <% } %>
@@ -37,23 +37,23 @@
             </table>
       
 </div>
-    <h2>Agregar nuevo juego</h2>
+    <h2>Agregar nuevo personaje</h2>
     <div class="container" >
         <div class="col-md-5">
             <div class="card">
                 <div class="card-body">
-                    <form action="/juegos/add" method="post">
+                    <form action="/personajes/add" method="post">
                         <div class="form-group">
-                            <input type="text" name="titulo" placeholder="titulo" class="form-control">
+                            <input type="text" name="nombre" placeholder="nombre" class="form-control">
                         </div>
-                        <div class="form-group" aria-placeholder="Agregar juego">
-                            <input type="text" name="consola" placeholder="consola" class="form-control">
+                        <div class="form-group" aria-placeholder="Agregar personaje">
+                            <input type="text" name="sexo" placeholder="sexo" class="form-control">
                         </div>
                         <div class="form-group">
-                            <input type="date" name="fecha" placeholder="fecha" class="form-control">
+                            <input type="number" name="juegoId" placeholder="juegoId" class="form-control">
                         </div>
                         <button type="submit" class="btn btn-primary" style="position: absolute">
-                            Guardar juego
+                            Guardar personaje
                         </button>
                     </form>
                 </div>
