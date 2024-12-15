@@ -1,38 +1,44 @@
 <%- include('partials/_header.ejs') %> 
+>
+<h1>
+    Listado de Juegos
+</h1>
 
-<h1>JUEGOS</h1>
 
+        
 <div class="container">
-    <div class="row mt-5">
-        <div class="col-md-7">
+    
             <table class="table table-bordered table-hover">
                 <thead>
                     <tr>
-                        <th>no.</th>
+                        <th class="col-width-1">no.</th>
                         <th>título</th>
                         <th>consola</th>
                         <th>fecha</th>
-                        <th>acciones</th>
+                        <th class="col-width-5">acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     <% if(data) { %>
                         <% for (var i=0; i < data.length; i++) { %>
                             <tr>
-                                <td><%= (i + 1) %></td>
-                                <td><%= data[i].titulo %></td>
-                                <td><%= data[i].consola %></td>
-                                <td><%= data[i].fecha %></td>
-                                <td>
-                                    <a href="/delete/<%= data[i].id %>" class="btn btn-danger">Delete</a>
+                                <td class="col-width-1"><%= (i + 1) %></td>
+                                <td class="col-width-2"><%= data[i].titulo %></td>
+                                <td class="col-width-3"><%= data[i].consola %></td>
+                                <td class="col-width-4"><%= data[i].fecha %></td>
+                                <td class="col-width-5">
                                     <a href="/update/<%= data[i].id %>" class="btn btn-info">Update</a>
+                                    <a href="/delete/<%= data[i].id %>" class="btn btn-danger">Delete</a>
                                 </td>
                             </tr>
                         <% } %>
                     <% } %>
                 </tbody>
             </table>
-        </div>
+      
+</div>
+    <h2>Agregar nuevo juego</h2>
+    <div class="container" >
         <div class="col-md-5">
             <div class="card">
                 <div class="card-body">
@@ -40,13 +46,13 @@
                         <div class="form-group">
                             <input type="text" name="titulo" placeholder="titulo" class="form-control">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" aria-placeholder="Agregar juego">
                             <input type="text" name="consola" placeholder="consola" class="form-control">
                         </div>
                         <div class="form-group">
                             <input type="date" name="fecha" placeholder="fecha" class="form-control">
                         </div>
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" class="btn btn-primary" style="position: absolute">
                             Guardar juego
                         </button>
                     </form>
@@ -54,7 +60,7 @@
             </div>
         </div>
     </div>
-</div>
+
 
 
 
