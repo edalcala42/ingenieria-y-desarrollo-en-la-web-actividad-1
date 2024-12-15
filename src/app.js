@@ -8,6 +8,7 @@ const myConnection = require('express-myconnection');
 const app = express();
 
 // importación de rutas
+const indexRoutes = require('./routes/index');
 const juegoRoutes = require('./routes/juego');
 const personajeRoutes = require('./routes/personaje');
 
@@ -29,6 +30,7 @@ app.use(myConnection(mysql, {
 app.use(express.urlencoded({extended: false}));
 
 // rutas
+app.use('/', indexRoutes);
 app.use('/juegos', juegoRoutes);
 app.use('/personajes', personajeRoutes);
 
