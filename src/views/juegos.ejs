@@ -23,7 +23,7 @@
             <table class="table table-bordered table-hover">
                 <thead>
                     <tr>
-                        <th class="col-width-1">no.</th>
+                        <th class="col-width-1">ID.</th>
                         <th>título</th>
                         <th>consola</th>
                         <th>fecha</th>
@@ -34,7 +34,7 @@
                     <% if(data) { %>
                         <% for (var i=0; i < data.length; i++) { %>
                             <tr>
-                                <td class="col-width-1"><%= (i + 1) %></td>
+                                <td class="col-width-1"><%= data[i].id %></td>
                                 <td class="col-width-2"><%= data[i].titulo %></td>
                                 <td class="col-width-3"><%= data[i].consola %></td>
                                 <td class="col-width-4"><%= data[i].fecha %></td>
